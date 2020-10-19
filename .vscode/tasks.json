@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "command": "npm run dev",
+      "problemMatcher": [],
+      "label": "Run",
+      "detail": "Serves a local server"
+    },
+    {
+      "type": "shell",
+      "command": "npm run build && npm start",
+      "problemMatcher": [],
+      "label": "Build",
+      "detail": "Creates a production build"
+    },
+    {
+      "type": "shell",
+      "command": "docker-compose -f docker-compose-dev.yml up --build",
+      "problemMatcher": [],
+      "label": "Docker",
+      "detail": "Builds and runs a docker container"
+    }
+  ]
+}
