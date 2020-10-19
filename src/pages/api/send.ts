@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import TelegramBot from "node-telegram-bot-api"
 import { sendMessage } from "../../data/bot"
 import { getDbInstance, save } from "../../data/db"
 

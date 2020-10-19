@@ -13,7 +13,6 @@ import {
 import Message from "../models/Message"
 import { FormEvent, useState } from "react"
 import { useRouter } from "next/router"
-import TelegramBot from "node-telegram-bot-api"
 import { MuiPickersUtilsProvider, DateTimePicker } from "@material-ui/pickers"
 import DayJSUtils from "@date-io/dayjs"
 import { ParsedUrlQuery } from "querystring"
@@ -73,17 +72,31 @@ const HomePage: NextPage<HomePageProps> = ({ messages }) => {
     >
       <Tabs.Item label="Send Now" value="false" />
       <Tabs.Item label="Send Later" value="true">
-        <MuiPickersUtilsProvider utils={DayJSUtils}>
-          <DateTimePicker
-            value={scheduleDate}
-            inputVariant="outlined"
-            style={{ height: 30 }}
-            onChange={(date) => setScheduleDate(date.toDate())}
-            ampm={false}
-            autoOk
-            disablePast
-          />
-        </MuiPickersUtilsProvider>
+        <div style={{ height: 40 }}>
+          <div style={{ position: "absolute" }}>
+            <Button type="secondary" ghost>
+              {scheduleDate.toLocaleString("en-US", {
+                month: "short",
+                day: "numeric",
+                hour: "numeric",
+                minute: "2-digit",
+              })}
+            </Button>
+          </div>
+          <div style={{ position: "absolute" }}>
+            <MuiPickersUtilsProvider utils={DayJSUtils}>
+              <DateTimePicker
+                value={scheduleDate}
+                inputVariant="outlined"
+                style={{ height: 40, width: 200, opacity: 0, zIndex: 50 }}
+                onChange={(date) => setScheduleDate(date.toDate())}
+                ampm={false}
+                autoOk
+                disablePast
+              />
+            </MuiPickersUtilsProvider>
+          </div>
+        </div>
       </Tabs.Item>
     </Tabs>
   )
