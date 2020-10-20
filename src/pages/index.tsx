@@ -28,6 +28,7 @@ const HomePage: NextPage<HomePageProps> = ({ messages }) => {
   const router = useRouter()
   const [, setToast] = useToasts()
   const [message, setMessage] = useState("")
+  const [showDatePicker, setShowDatePicker] = useState(false)
   const [scheduleDate, setScheduleDate] = useState<Date>(new Date())
   const [shouldSchedule, setShouldSchedule] = useState<"true" | "false">(
     "false"
@@ -74,7 +75,27 @@ const HomePage: NextPage<HomePageProps> = ({ messages }) => {
       <Tabs.Item label="Send Later" value="true">
         <div style={{ height: 40 }}>
           <div style={{ position: "absolute" }}>
-            <Button type="secondary" ghost>
+            <MuiPickersUtilsProvider utils={DayJSUtils}>
+              <DateTimePicker
+                value={scheduleDate}
+                inputVariant="outlined"
+                style={{ height: 40, width: 200, opacity: 0 }}
+                onChange={(date) => setScheduleDate(date.toDate())}
+                open={showDatePicker}
+                onOpen={() => setShowDatePicker(true)}
+                onClose={() => setShowDatePicker(false)}
+                ampm={false}
+                autoOk
+                disablePast
+              />
+            </MuiPickersUtilsProvider>
+          </div>
+          <div style={{ position: "absolute" }}>
+            <Button
+              type="secondary"
+              ghost
+              onClick={() => setShowDatePicker(true)}
+            >
               {scheduleDate.toLocaleString("en-US", {
                 month: "short",
                 day: "numeric",
@@ -82,19 +103,6 @@ const HomePage: NextPage<HomePageProps> = ({ messages }) => {
                 minute: "2-digit",
               })}
             </Button>
-          </div>
-          <div style={{ position: "absolute" }}>
-            <MuiPickersUtilsProvider utils={DayJSUtils}>
-              <DateTimePicker
-                value={scheduleDate}
-                inputVariant="outlined"
-                style={{ height: 40, width: 200, opacity: 0, zIndex: 50 }}
-                onChange={(date) => setScheduleDate(date.toDate())}
-                ampm={false}
-                autoOk
-                disablePast
-              />
-            </MuiPickersUtilsProvider>
           </div>
         </div>
       </Tabs.Item>

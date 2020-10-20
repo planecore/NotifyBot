@@ -23,6 +23,7 @@ Fill the BOT_TOKEN, leave CHAT_ID empty and start the container.
 version: "3"
 services:
   notifybot:
+      container_name: notifybot
       image: planecore/notifybot
       ports:
         - "3000:3000"

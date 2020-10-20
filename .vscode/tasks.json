@@ -17,7 +17,7 @@
     },
     {
       "type": "shell",
-      "command": "docker-compose -f docker-compose-dev.yml up --build",
+      "command": "docker-compose -f docker-compose-dev.yml --env-file .env.local up --build",
       "problemMatcher": [],
       "label": "Docker",
       "detail": "Builds and runs a docker container"

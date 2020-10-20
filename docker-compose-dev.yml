@@ -2,12 +2,12 @@ version: "3"
 services:
   notifybot:
     container_name: notifybot
-    image: planecore/notifybot
+    build: .
     ports:
       - "3000:3000"
     environment:
-      - BOT_TOKEN=
-      - CHAT_ID=
+      - BOT_TOKEN
+      - CHAT_ID
     volumes: 
       - ./db:/usr/src/app/db
     restart: unless-stopped

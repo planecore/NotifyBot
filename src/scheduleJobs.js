@@ -48,7 +48,6 @@ if (chatId === undefined || chatId === "") {
 
   function scheduleJob() {
     schedule.scheduleJob("* * * * *", async () => {
-      console.log("HELLO AT ", new Date())
       sendMessagesInQueue()
     })
   }
