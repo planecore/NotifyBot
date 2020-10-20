@@ -1,8 +1,10 @@
 # <img src="https://raw.githubusercontent.com/planecore/NotifyBot/main/public/logo.png" width="32"> NotifyBot
 Send yourself push notifications with Telegram.
 
+<img src="https://raw.githubusercontent.com/planecore/NotifyBot/main/public/screenshot.png"></img>
+
 ## Usage
-Use the website or the API:
+Use the website, the [iOS Shortcut](https://www.icloud.com/shortcuts/a901b97f0a7c45f887c8f581f7f08824) or the API:
 
 ### POST /api/send
 #### Parameters:
