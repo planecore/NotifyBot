@@ -39,7 +39,7 @@ After your container loaded, send this command to the bot: /get_chat_id
 
 Copy the reply the bot sent and place it in CHAT_ID.
 
-Restart the container the NotifyBot is ready to go!
+Restart the container and NotifyBot is ready to go!
 
 ## Dependencies
 - Frontend: [React with Next.js](https://nextjs.org/)
